@@ -4,6 +4,18 @@ function sortear() {
     let ate = parseInt(document.getElementById('ate').value);
     / UTILIZAMOS O VALUE PARA RECEBER A ENTRADA DE ALGUM DADO/
 
+    if(de >=ate ) {
+        alert('Campo "Do número" deve ser inferior ao campo "Até o número." Verifique!');
+        return;
+    }
+
+    if (quantidade > (ate - de + 1)) {
+        alert('Campo "Quantidade" deve  ser menor ou igual ao intervalo informado no campo "Do número" até o campo "Até o número". Verifique!');
+        alterarStatusBotao();
+        return;
+    }
+
+
     let sorteados = [];
     let numero;
 
@@ -13,6 +25,7 @@ function sortear() {
         / O INCLUDES É UTILIZADO QUANDO PASSAMOS UM ELEMENTO, E ELE INFORMA SE ESSE ELEMENTO JÁ EXISTE DENTRO DE UM ARRAY, RETORNANDO UM BOOLEAN TRUE OR FALSE/
         while (sorteados.includes(numero)) {
             numero = obterNumeroAleatorio(de, ate);
+            
         }
 
         / FUNÇÃO PUSH SERVE PARA EMPURRAR E COLOCAR OUTRO ELEMENTO DENTRO DE UM ARRAY/
